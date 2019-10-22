@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="zh-hk">
+  <texts>
+    <text name="AppName" >排班系統</text>
+    <text name="CRS" value="排班系統" />
+    <text name="StartTyping">開始輸入</text>
+    <text name="Version">版本</text>
+    <text name="CopyRight" >© 2019 排班系統</text>
+    <text name="HomePage" value="主頁" />
+    <text name="Data">基礎資料</text>
+    <text name="Service">綜合服務</text>
+    <text name="Report">管理報表</text>
+    <text name="Setting">系統設置</text>
+    <text name="Office">辦公室資訊</text>
+    <text name="Department">院系</text>
+    <text name="Course">課程</text>
+    <text name="Instructor">教職員</text>
+    <text name="Student">學生</text>
+    <text name="OfficeInstructor">教職員辦公室分配</text>
+    <text name="DepartmentInstructor">院系主任設置</text>
+    <text name="DepartmentCourse">院系課程設置</text>
+    <text name="InstructorCourse">教職員課程分配</text>
+    <text name="StudentCourse">學生選課</text>
+    <text name="OfficeReport">辦公室報表</text>
+    <text name="DepartmentReport">院系報表</text>
+    <text name="CourseReport">課程報表</text>
+    <text name="InstructorReport">教職員報表</text>
+    <text name="StudentReport">學生報表</text>
+    <text name="About" value="關於" />
+    <text name="Skins">皮膚</text>
+    <text name="Settings">設置</text>
+    <text name="WelcomeMessage" value="歡迎使用 CRS!" />
+    <text name="FormIsNotValidMessage" value="部分輸入資訊不符合要求，請檢查並改正.." />
+    <text name="TenantNameCanNotBeEmpty" value="租戶名不能為空" />
+    <text name="InvalidUserNameOrPassword" value="用戶名或密碼無效" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="租戶 {0}不存在" />
+    <text name="TenantIsNotActive" value="租戶 {0} 未啟動." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="用戶 {0} 未啟動，不能登錄." />
+    <text name="PleaseEnterLoginInformation" value="請輸入登錄資訊" />
+    <text name="TenancyName" value="租戶標識" />
+    <text name="UserNameOrEmail" value="用戶名或郵箱地址" />
+    <text name="Password" value="密碼" />
+    <text name="RememberMe" value="記住我" />
+    <text name="ForgetPassword" value="忘記密碼"/>
+    <text name="NotSelected" value="未選"/>
+    <text name="ChangeTenant" value="更改租戶"/>
+    <text name="LeaveEmptyToSwitchToHost" value="留空以切換到Host"/>
+    <text name="LogIn" value="登錄" />
+    <text name="LoginFailed" value="登錄失敗!" />
+    <text name="UserNamePlaceholder" >請輸入帳戶</text>
+    <text name="PasswordPlaceholder" >請輸入密碼</text>
+    <text name="LoginPrompt" >正在登陸，請稍候！</text>
+    <text name="UserProfile" >使用者資料</text>
+    <text name="Users" >用戶</text>
+    <text name="Roles" >角色</text>
+    <text name="Tenants" >租戶</text>
+    <text name="Logout" >註銷</text>
+    <text name="ManageMenu" >菜單</text>
+    <text name="LabelOptions" >頁簽操作</text>
+    <text name="ClearAll" >關閉所有</text>
+    <text name="ClearOthers" >關閉其他</text>
+    <text name="Create" >創建</text>
+    <text name="Add" >添加</text>
+    <text name="Edit" >編輯</text>
+    <text name="Delete">刪除</text>
+    <text name="Find" >查找</text>
+    <text name="CreationTime">創建時間</text>
+    <text name="Actions">操作</text>
+    <text name="Keyword">關鍵字</text>
+    <text name="NoDatas">沒有結果</text>
+    <text name="Select">請選擇</text>
+    <text name="SelectDate">請選擇</text>
+    <text name="Tips">提示</text>
+    <text name="DeleteConfirm">確定刪除？</text>
+    <text name="Title" >標題</text>
+    <text name="Content" >內容</text>
+    <text name="ChangePassword" >修改密碼</text>
+    <text name="PasswordComplexityNotSatisfied">密碼複雜度要求不符.</text>
+    <text name="PasswordRequireDigit">密碼至少需要一位元是0到9的數位.</text>
+    <text name="PasswordRequireLowercase">密碼至少需要一位元是a到z的小寫字母.</text>
+    <text name="PasswordRequireNonAlphanumeric">密碼至少需要包含一個特殊字元（非字母或數位的字元）.</text>
+    <text name="PasswordRequireUppercase">密碼至少需要一位元是A到Z的大寫字母.</text>
+    <text name="PasswordTooShort">密碼長度太短</text>
+    <text name="UserName">用戶名</text>
+    <text name="Name">名稱</text>
+    <text name="IsActive">是否啟用</text>
+    <text name="LastLoginTime">最近登陸時間</text>
+    <text name="RoleName">角色名</text>
+    <text name="DisplayName">顯示名</text>
+    <text name="Description">描述</text>
+    <text name="IsStatic">是否內置</text>
+
+    <text name="All">全部</text>
+    <text name="Actived">啟用</text>
+    <text name="NoActive">未啟用</text>
+
+    <text name="Yes">是</text>
+    <text name="No">否</text>
+
+    <text name="Cancel">取消</text>
+    <text name="OK">確定</text>
+    <text name="CreateNewRole">創建新角色</text>
+    <text name="RoleDetails">角色詳情</text>
+    <text name="RolePermission">角色許可權</text>
+    <text name="EditRole">編輯角色</text>
+    <text name="DeleteRolesConfirm">確認刪除該角色？</text>
+
+    <text name="CreateNewUser">創建新用戶</text>
+    <text name="UserDetails">用戶詳情</text>
+    <text name="UserRoles">用戶角色</text>
+    <text name="ConfirmPassword">確認密碼</text>
+    <text name="EmailAddress">郵箱地址</text>
+    <text name="Surname">姓</text>
+    <text name="DeleteUserConfirm">確認刪除該用戶？</text>
+    <text name="EditUser">編輯用戶</text>
+
+    <text name="CreateNewTenant">創建新租戶</text>
+    <text name="DatabaseConnectionString">資料庫連接</text>
+    <text name="AdminEmailAddress">管理員郵箱地址</text>
+    <text name="DefaultPasswordIs">預設密碼為：{0}</text>
+    <text name="DeleteTenantConfirm">確認刪除該租戶？</text>
+    <text name="EditTenant">編輯租戶</text>
+
+
+  </texts>
+</localizationDictionary>
