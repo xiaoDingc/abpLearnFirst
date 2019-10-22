@@ -33,6 +33,7 @@ namespace JD.CRS.Web.Controllers
           var model=new CourseListViewModel()
           {
               Courses = courses,
+              //源代码讲解到此的时候没有添加这一句,导致一刷新就显示全部
               SelectStatusCode = input.Status
           };
             return  View(model);
