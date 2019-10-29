@@ -43,8 +43,7 @@ namespace JD.CRS.Web.Models.Course
                     }
                 ));
 
-            return  list;
-            
+            return  list;  
         }
     }
 }

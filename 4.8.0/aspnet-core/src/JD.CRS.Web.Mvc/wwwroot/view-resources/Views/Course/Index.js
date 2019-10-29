@@ -1,6 +1,5 @@
 ﻿(function () {
     $(function () {
-
         var _courseService = abp.services.app.course;
         var _$modal = $('#CourseCreateModal');
         var _$form = _$modal.find('form');
@@ -8,6 +7,35 @@
 
 		var _$keyword=$("#KeyWord");
 		var _$search=$("#Search");
+		 var _$dataTable = $('#dataTable');
+
+		 _$dataTable.DataTable({
+            oLanguage: { //Language
+                //"sUrl": "~/lib/dataTables/Language/zh-cn.json"
+				"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "全部"]], //每页显示记录数
+                "sEmptyTable": "无数据",
+                "sInfo": "显示第 _START_ 至 _END_ 项记录，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项记录 / 共 0 项",
+                "sInfoFiltered": "(从 _MAX_ 条记录过滤)",
+                "sInfoPostFix": "",
+                "sThousands": ",",
+                "sLengthMenu": "_MENU_ 项/页",
+                "sLoadingRecords": "载入中...",
+                "sProcessing": "处理中...",
+                "sSearch": "过滤:",
+                "sZeroRecords": "没找到匹配的记录",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 升序排序",
+                    "sSortDescending": ": 降序排序"
+                }
+            }
+        });
 
 		_$search.click(function () {
 			location.href = '/Course?status=' + _$status.val() + '&keyword=' + _$keyword.val();
