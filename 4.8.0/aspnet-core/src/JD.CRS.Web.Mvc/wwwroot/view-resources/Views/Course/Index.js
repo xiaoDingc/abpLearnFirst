@@ -4,7 +4,14 @@
         var _courseService = abp.services.app.course;
         var _$modal = $('#CourseCreateModal');
         var _$form = _$modal.find('form');
-		var _$statusCombobox=$('#StatusCombobox');
+		var _$status=$('#Status');
+
+		var _$keyword=$("#KeyWord");
+		var _$search=$("#Search");
+
+		_$search.click(function () {
+			location.href = '/Course?status=' + _$status.val() + '&keyword=' + _$keyword.val();
+		});
 	
 
 
@@ -22,8 +29,8 @@
         });
 
 		
-		_$statusCombobox.change(function () {
-			location.href='/Course?status=' + _$statusCombobox.val();
+		_$status.change(function () {
+			location.href='/Course?status=' + _$status.val();
 		});
 
         $('.edit-course').click(function (e) {

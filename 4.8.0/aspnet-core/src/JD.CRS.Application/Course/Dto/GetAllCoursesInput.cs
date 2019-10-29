@@ -3,8 +3,9 @@ using JD.CRS.Entitys;
 
 namespace JD.CRS.Course.Dto
 {
-    public class GetAllCoursesInput:PagedResultRequestDto
+    public class GetAllCoursesInput : PagedResultRequestDto
     {
-        public  StatusCode? Status{get;set;}
+        public StatusCode? Status { get; set; }
+        public string KeyWord { get; set; }
     }
 }

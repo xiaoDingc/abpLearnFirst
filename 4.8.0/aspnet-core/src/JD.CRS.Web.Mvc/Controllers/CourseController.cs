@@ -28,13 +28,14 @@ namespace JD.CRS.Web.Controllers
         public async Task<ActionResult> Index(GetAllCoursesInput input)
         {
             //异步获取所有的course
-          var courses=(await _courseAppService.GetAll(new GetAllCoursesInput(){Status = input.Status})).Items;
+          var courses=(await _courseAppService.GetAll(new GetAllCoursesInput(){Status = input.Status,KeyWord = input.KeyWord})).Items;
 
           var model=new CourseListViewModel()
           {
               Courses = courses,
               //源代码讲解到此的时候没有添加这一句,导致一刷新就显示全部
-              SelectStatusCode = input.Status
+              SelectStatusCode = input.Status,
+              KeyWord = input.KeyWord,
           };
             return  View(model);
         }

@@ -13,6 +13,7 @@ namespace JD.CRS.Web.Models.Course
 
     public class CourseListViewModel
     {
+        public  string KeyWord{get;set;}
         public StatusCode? SelectStatusCode { get; set; }
 
         public IReadOnlyList<CourseDto> Courses { get; set; }

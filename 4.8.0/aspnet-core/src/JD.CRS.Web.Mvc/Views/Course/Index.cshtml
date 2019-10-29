@@ -39,19 +39,29 @@
             <div class="body table-responsive">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th class="col-sm-1">@L("Status")</th>
-                        <th class="col-sm-1">
-                            @Html.DropDownListFor(
-                                model=>model.SelectStatusCode,
-                                Model.GetStatusList(LocalizationManager),
-                                new {
-                                    @class="form-control",
-                                    id = "StatusCombobox"
-                                })
-                                    
-                        </th>
-                    </tr>
+                        <tr>
+                            <th class="col-sm-1">@L("Status")</th>
+                            <th class="col-sm-1">
+                                @Html.DropDownListFor(
+                                    model=>model.SelectStatusCode,
+                                    Model.GetStatusList(LocalizationManager),
+                                    new {
+                                        @class="form-control",
+                                        id = "Status"
+                                    })
+
+                            </th>
+                            <th class="col-sm-1">@L("Keyword")</th>
+                            <th class="col-sm-4">
+                                <input type="text" name="KeyWord" id="KeyWord" class="form-control"
+                                       placeholder="Please enter the keyword..."
+                                       value="@Model.KeyWord" />
+                            </th>
+                            <th class="col-sm-4"></th>
+                            <th class="col-sm-1">
+                                <button id="Search" class="form-control">@L("Search")</button>
+                            </th>
+                        </tr>
                     
 
                     <tr>
