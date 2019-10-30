@@ -44,7 +44,8 @@ namespace JD.CRS.Web.Controllers
             var course=await  _courseAppService.Get(new EntityDto<int>(courseId));
             var model=new EditCourseViewModel()
             {
-                Course = course
+                Course = course,
+                SelectStatusCode = course.Status,
             };
             return  View("_EditCourseModal",model);
         }

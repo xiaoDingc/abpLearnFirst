@@ -10,11 +10,18 @@
 
     <environment names="Development">
         <script src="~/view-resources/Views/Course/Index.js" asp-append-version="true"></script>
+        <link href="~/lib/DataTables/dataTables.css" rel="stylesheet" asp-append-version="true" />
+        <script src="~/lib/DataTables/dataTables.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="~/view-resources/Views/Course/Index.min.js" asp-append-version="true"></script>
+        <link href="~/lib/DataTables/dataTables.css" rel="stylesheet" asp-append-version="true" />
+        <script src="~/lib/DataTables/dataTables.js" asp-append-version="true"></script>
     </environment>
+
+
 }
+
 
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -37,7 +44,7 @@
                 </ul>
             </div>
             <div class="body table-responsive">
-                <table class="table">
+                <table id="dataTable" class="table">
                     <thead>
                         <tr>
                             <th class="col-sm-1">@L("Status")</th>
@@ -62,17 +69,17 @@
                                 <button id="Search" class="form-control">@L("Search")</button>
                             </th>
                         </tr>
-                    
 
-                    <tr>
-                        <th>@L("Code")</th>
-                        <th>@L("DepartmentCode")</th>
-                        <th>@L("Name")</th>
-                        <th>@L("Credits")</th>
-                        <th>@L("Remarks")</th>
-                        <th>@L("Status")</th>
-                        <th>@L("Actions")</th>
-                    </tr>
+
+                        <tr>
+                            <th>@L("Code")</th>
+                            <th>@L("DepartmentCode")</th>
+                            <th>@L("Name")</th>
+                            <th>@L("Credits")</th>
+                            <th>@L("Remarks")</th>
+                            <th>@L("Status")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.Courses)
@@ -168,7 +175,16 @@
                             <div class="col-sm-12">
                                 <div class="form-line">
                                     <label class="form-label">@L("Status")</label>
-                                    <input name="Status" type="text" class="form-control" />
+
+                                    @Html.DropDownListFor(
+                                        model=>model.SelectStatusCode,
+                                        @Model.GetStatusList(LocalizationManager),
+                                        new {
+                                            @class="form-control",
+                                            id="Status"
+                                        }
+                                        );
+                                    @*  <input name="Status" type="text" class="form-control" />*@
                                 </div>
                             </div>
                         </div>
