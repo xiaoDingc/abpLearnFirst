@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+<<<<<<< HEAD
+.vscode/launch.json
+.vscode/tasks.json
+=======
+4.8.0/aspnet-core/src/JD.CRS.Web.Mvc/App_Data/Logs/Logs.txt
+>>>>>>> 178ae164e704d7d6dd394e33ae7b617935f90962
