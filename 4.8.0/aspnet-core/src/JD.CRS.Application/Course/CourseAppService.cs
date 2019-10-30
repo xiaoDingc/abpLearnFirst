@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
 using Castle.Core.Internal;
+using JD.CRS.Authorization;
 using JD.CRS.Course.Dto;
 
 namespace JD.CRS.Course
 {
+     [AbpAuthorize(PermissionNames.Pages_Course)]
     public class CourseAppService : AsyncCrudAppService<Entitys.Course, CourseDto, int, GetAllCoursesInput, CreateUpdateCourseDto, CreateUpdateCourseDto>, ICourseAppService
     {
         public CourseAppService(IRepository<Entitys.Course, int> repository):base(repository)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AspNetCore.Mvc.Authorization;
+using Abp.Authorization;
 using JD.CRS.Authorization;
 using JD.CRS.Controllers;
 using JD.CRS.Course;
@@ -13,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JD.CRS.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Course)]
+    [AbpAuthorize(PermissionNames.Pages_Course)]
     public class CourseController : CRSControllerBase
     {
         private  readonly  ICourseAppService _courseAppService;
