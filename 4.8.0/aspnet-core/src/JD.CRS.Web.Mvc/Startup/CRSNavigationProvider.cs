@@ -37,7 +37,8 @@ namespace JD.CRS.Web.Startup
                         new MenuItemDefinition(
                             PageNames.Department,
                             L("Department"),
-                            url: "Department",
+                            //url: "Department",
+                            url: "EquipmentType",
                             requiredPermissionName: PermissionNames.Pages_Department
                         )
                     ).AddItem( //二级菜单 - 课程设置

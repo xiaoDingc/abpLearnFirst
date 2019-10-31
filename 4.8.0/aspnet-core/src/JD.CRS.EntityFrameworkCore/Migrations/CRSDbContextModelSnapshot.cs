@@ -1061,8 +1061,6 @@ namespace JD.CRS.Migrations
                     b.Property<string>("Remarks")
                         .HasMaxLength(200);
 
-                    b.Property<int?>("Status");
-
                     b.Property<DateTime?>("UpdateDate");
 
                     b.Property<string>("UpdateName")
@@ -1071,6 +1069,50 @@ namespace JD.CRS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("JD.CRS.Entitys.EquipmentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BriefName")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(64);
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<long?>("DeleterUserId");
+
+                    b.Property<DateTime?>("DeletionTime");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Remark")
+                        .HasMaxLength(512);
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Code")
+                        .HasName("UK_EquipmentType_Code");
+
+                    b.ToTable("EquipmentType");
                 });
 
             modelBuilder.Entity("JD.CRS.MultiTenancy.Tenant", b =>
