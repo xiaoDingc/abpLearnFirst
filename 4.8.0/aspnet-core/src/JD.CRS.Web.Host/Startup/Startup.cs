@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
@@ -75,6 +76,13 @@ namespace JD.CRS.Web.Host.Startup
                     In = "header",
                     Type = "apiKey"
                 });
+
+                 //将application层的注释添加的swaggerui中
+                var baseDirectory=AppDomain.CurrentDomain.BaseDirectory;
+                var commentsFileName=@"JD.CRS.Application.xml";
+                var commentFile=Path.Combine(baseDirectory,commentsFileName);
+                //将注释的xml文档添加到swagger中
+                options.IncludeXmlComments(commentFile);
             });
 
             // Configure Abp and Dependency Injection

@@ -22,6 +22,11 @@ namespace JD.CRS.Course
             
         }
 
+        /// <summary>
+        /// 获取所有
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task<PagedResultDto<CourseDto>> GetAll(GetAllCoursesInput input)
         {
         //       var query = base.CreateFilteredQuery(input)
