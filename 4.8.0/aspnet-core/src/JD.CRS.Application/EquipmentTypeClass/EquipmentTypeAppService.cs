@@ -16,12 +16,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JD.CRS.EquipmentType
 {
-     [AbpAuthorize(PermissionNames.Pages_Course)]
+     [AbpAuthorize(PermissionNames.Pages_Department)]
     public class EquipmentTypeAppService : AsyncCrudAppService<Entitys.EquipmentType,
         EquipmentTypeDto,
         int,
         PagedEquipmentResultRequestDto,
-    CreateEquipmentTypeDto, UpdateEquipmentTypeDto>, IEquipmentTypeAppService
+    CreateUpdateEquipmentTypeDto, CreateUpdateEquipmentTypeDto>, IEquipmentTypeAppService
     {
         
          private readonly IRepository<Entitys.EquipmentType> _equipmentTypeRepository;
@@ -55,26 +55,26 @@ namespace JD.CRS.EquipmentType
             ));
         }
 
-        public  async Task<EquipmentTypeDto> Update(EquipmentTypeDto input)
+        //public  async Task<EquipmentTypeDto> Update(EquipmentTypeDto input)
+        //{
+        //    var entity = await _equipmentTypeRepository.GetAsync(input.Id);
+
+        //    ObjectMapper.Map(input, entity);
+
+        //    await _equipmentTypeRepository.UpdateAsync(entity);
+
+        //    return MapToEntityDto(entity);
+        //}
+
+        //public override async Task Delete(EntityDto<int> input)
+        //{
+        //    var entity = await _equipmentTypeRepository.GetAsync(input.Id);
+        //    await _equipmentTypeRepository.DeleteAsync(entity);
+        //}
+
+        public override async Task<EquipmentTypeDto> Create(CreateUpdateEquipmentTypeDto input)
         {
-            var entity = await _equipmentTypeRepository.GetAsync(input.Id);
-
-            ObjectMapper.Map(input, entity);
-
-            await _equipmentTypeRepository.UpdateAsync(entity);
-
-            return MapToEntityDto(entity);
-        }
-
-        public override async Task Delete(EntityDto<int> input)
-        {
-            var entity = await _equipmentTypeRepository.GetAsync(input.Id);
-            await _equipmentTypeRepository.DeleteAsync(entity);
-        }
-
-        public async Task<EquipmentTypeDto> Create(UpdateEquipmentTypeDto input)
-        {
-           //判断CODE是否已存在
+            //判断CODE是否已存在
             var model = await Repository.GetAllIncluding().FirstOrDefaultAsync(x => x.Code == input.Code);
             if (model != null)
             {

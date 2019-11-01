@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
+using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using JD.CRS.Authorization;
 using JD.CRS.Controllers;
 using JD.CRS.EquipmentType;
 using JD.CRS.EquipmentType.Dto;
+using JD.CRS.Web.Models.Course;
 using JD.CRS.Web.Models.EquipmentType;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +23,7 @@ namespace JD.CRS.Web.Controllers
         // GET
         public async Task<IActionResult> Index()
         {
+            //_equipmentTypeAppService.Create()
             var modelDto=(await _equipmentTypeAppService.GetAll(new PagedEquipmentResultRequestDto(){MaxResultCount = int.MaxValue})
                 ).Items;
             var viewModel=new EquipmentTypeListViewModel()
@@ -30,5 +33,16 @@ namespace JD.CRS.Web.Controllers
 
             return View(viewModel);
         }
+
+        public  async  Task<IActionResult> EditEquipmentTypeModal(int EquipmentTypeId)
+        {
+             var equipmentTypes=await  _equipmentTypeAppService.Get(new EntityDto<int>(EquipmentTypeId));
+            var model=new EditEquipmentTypeViewModel()
+            {
+                EquipmentTypeDto = equipmentTypes,
+            };
+            return  View("_EditEquipmentTypeModal",model);
+        }
+
     }
 }

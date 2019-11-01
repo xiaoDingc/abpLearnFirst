@@ -1,24 +1,18 @@
 ﻿(function() {
     $(function() {
 
-        var _EquipmentTypeService = abp.services.app.EquipmentType;
+        var _EquipmentTypeService = abp.services.app.equipmentType;
         var _$modal = $('#EquipmentTypeCreateModal');
         var _$form = _$modal.find('form');
 
-        _$form.validate({
-            rules: {
-                Password: "required",
-                ConfirmPassword: {
-                    equalTo: "#Password"
-                }
-            }
-        });
+        _$form.validate();
 
         $('#RefreshButton').click(function () {
             refreshEquipmentTypeList();
         });
 
         $('.delete-EquipmentType').click(function () {
+						debugger ;
             var EquipmentTypeId = $(this).attr("data-EquipmentType-id");
             var EquipmentTypeName = $(this).attr('data-EquipmentType-name');
 
@@ -30,11 +24,11 @@
 
             e.preventDefault();
             abp.ajax({
-                url: abp.appPath + 'EquipmentTypes/EditEquipmentTypeModal?EquipmentTypeId=' + EquipmentTypeId,
+                url: abp.appPath + 'EquipmentType/EditEquipmentTypeModal?EquipmentTypeId=' + EquipmentTypeId,
                 type: 'POST',
                 contentType: 'application/html',
                 success: function (content) {
-                    $('#EquipmentTypeEditModal div.modal-content').html(content);
+                    $('#EditEquipmentTypeModal div.modal-content').html(content);
                 },
                 error: function (e) { }
             });
@@ -48,14 +42,14 @@
             }
 
             var EquipmentType = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-            EquipmentType.roleNames = [];
-            var _$roleCheckboxes = $("input[name='role']:checked");
-            if (_$roleCheckboxes) {
-                for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
-                    var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
-                    EquipmentType.roleNames.push(_$roleCheckbox.val());
-                }
-            }
+            //EquipmentType.roleNames = [];
+            //var _$roleCheckboxes = $("input[name='role']:checked");
+            //if (_$roleCheckboxes) {
+            //    for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
+            //        var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
+            //        EquipmentType.roleNames.push(_$roleCheckbox.val());
+            //    }
+            //}
 
             abp.ui.setBusy(_$modal);
             _EquipmentTypeService.create(EquipmentType).done(function () {

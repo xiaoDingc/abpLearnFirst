@@ -5,7 +5,7 @@ using Abp.Domain.Entities.Auditing;
 
 namespace JD.CRS.BaseModel
 {
-    public class BaseEntityDto:FullAuditedEntityDto,IPassivable
+    public class BaseEntityDto:FullAuditedEntityDto<int>,IPassivable
     {
         public const int MaxCodeLength = 64;
         public const int MaxNameLength = 256;

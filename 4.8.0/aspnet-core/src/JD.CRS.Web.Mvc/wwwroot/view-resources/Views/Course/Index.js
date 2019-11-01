@@ -83,20 +83,6 @@
 
 			}
 		});
-		//pdfMake.fonts = {
-		//	Roboto: {
-		//		normal: 'Roboto-Regular.ttf',
-		//		bold: 'Roboto-Medium.ttf',
-		//		italics: 'Roboto-Italic.ttf',
-		//		bolditalics: 'Roboto-Italic.ttf'
-		//	},
-		//	微软雅黑: {
-		//		normal: 'msyh.ttf',
-		//		bold: 'msyh.ttf',
-		//		italics: 'msyh.ttf',
-		//		bolditalics: 'msyh.ttf',
-		//	}
-		//};
 
 		_$search.click(function () {
 			location.href = '/Course?status=' + _$status.val() + '&keyword=' + _$keyword.val();
