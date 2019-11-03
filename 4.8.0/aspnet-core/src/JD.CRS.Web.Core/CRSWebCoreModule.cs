@@ -8,6 +8,7 @@ using Abp.AspNetCore.Configuration;
 using Abp.AspNetCore.SignalR;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using Abp.Runtime.Caching.Redis;
 using Abp.Zero.Configuration;
 using JD.CRS.Authentication.JwtBearer;
 using JD.CRS.Configuration;
@@ -18,6 +19,7 @@ namespace JD.CRS
     [DependsOn(
          typeof(CRSApplicationModule),
          typeof(CRSEntityFrameworkModule),
+         typeof(AbpRedisCacheModule),
          typeof(AbpAspNetCoreModule)
         ,typeof(AbpAspNetCoreSignalRModule)
      )]
@@ -45,6 +47,22 @@ namespace JD.CRS
                  .CreateControllersForAppServices(
                      typeof(CRSApplicationModule).GetAssembly()
                  );
+            //设置所有缓存的默认过期时间(必须放在使用redis缓存之前)
+            Configuration.Caching.ConfigureAll(cache=>
+            {
+                cache.DefaultAbsoluteExpireTime=TimeSpan.FromMinutes(2);
+            });
+            //设置某个缓存的默认过期时间 根据 "CacheName" 来区分(必须放在使用redis缓存之前
+            Configuration.Caching.Configure("Orgnazation",cache=>
+            {
+                cache.DefaultAbsoluteExpireTime=TimeSpan.FromMinutes(2);
+            });
+
+            Configuration.Caching.UseRedis(opt=>
+            {
+                opt.ConnectionString=_appConfiguration["App:RedisCache:ConnectionString"];
+                opt.DatabaseId=_appConfiguration.GetValue<int>("app:RedisCache:DatabaseId");
+            });
 
             ConfigureTokenAuth();
         }
