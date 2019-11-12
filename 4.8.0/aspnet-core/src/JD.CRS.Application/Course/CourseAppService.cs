@@ -8,6 +8,7 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Collections.Extensions;
 using Abp.Domain.Repositories;
+using Abp.Runtime.Caching;
 using Castle.Core.Internal;
 using JD.CRS.Authorization;
 using JD.CRS.Course.Dto;
@@ -17,11 +18,17 @@ namespace JD.CRS.Course
      [AbpAuthorize(PermissionNames.Pages_Course)]
     public class CourseAppService : AsyncCrudAppService<Entitys.Course, CourseDto, int, GetAllCoursesInput, CreateUpdateCourseDto, CreateUpdateCourseDto>, ICourseAppService
     {
-        public CourseAppService(IRepository<Entitys.Course, int> repository):base(repository)
+        private readonly ICacheManager cacheManager;
+        public CourseAppService(IRepository<Entitys.Course, int> repository,ICacheManager _cacheManager):base(repository)
         {
-            
+            cacheManager=_cacheManager;
         }
 
+        /// <summary>
+        /// 获取所有
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task<PagedResultDto<CourseDto>> GetAll(GetAllCoursesInput input)
         {
         //       var query = base.CreateFilteredQuery(input)
