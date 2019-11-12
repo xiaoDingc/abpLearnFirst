@@ -36,6 +36,7 @@ namespace JD.CRS.Web.Controllers
 
         public  async  Task<IActionResult> EditEquipmentTypeModal(int EquipmentTypeId)
         {
+            Logger.Debug("good");
              var equipmentTypes=await  _equipmentTypeAppService.Get(new EntityDto<int>(EquipmentTypeId));
             var model=new EditEquipmentTypeViewModel()
             {
